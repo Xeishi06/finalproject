@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technolodia</title>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(to bottom, #041824, #000);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /*Navigation bar*/
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: black;
+      padding: 15px 50px;
+      box-shadow: 0 2px 15px rgba(0, 255, 200, 0.2);
+    }
+
+    /*Company Logo*/
+    .left-section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      width: 50px;
+      height: 50px;
+      filter: drop-shadow(0 0 12px #36f1cd);
+      transition: filter 0.3s ease, transform 0.3s ease;
+    }
+
+    .logo:hover {
+      filter: drop-shadow(0 0 20px #36f1cd) drop-shadow(0 0 40px #36f1cd);
+      transform: scale(1.08);
+    }
+
+    /*Neon pulsing animation*/
+    @keyframes glowPulse {
+      0% { filter: drop-shadow(0 0 10px #36f1cd); }
+      50% { filter: drop-shadow(0 0 20px #36f1cd); }
+      100% { filter: drop-shadow(0 0 10px #36f1cd); }
+    }
+
+    .logo.animate-glow {
+      animation: glowPulse 2.5s infinite ease-in-out;
+    }
+
+    .site-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #36f1cd;
+      text-shadow: 0 0 10px #36f1cd, 0 0 20px #36f1cd, 0 0 30px #36f1cd;
+      transition: text-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .site-title:hover {
+      text-shadow: 0 0 25px #36f1cd, 0 0 50px #36f1cd;
+      transform: scale(1.05);
+    }
+
+    /*Auth buttons, means authentication buttons*/
+    .auth-buttons button {
+      background-color: #36f1cd;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 18px;
+      margin-left: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .auth-buttons button:hover {
+      background-color: #2ed1b0;
+      box-shadow: 0 0 15px #36f1cd;
+    }
+
+    /*Search bar*/
+    .search-bar {
+      position: relative;
+      width: 400px;
+      margin: 30px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 10px 15px;
+      border-radius: 8px;
+      border: 1px solid #979797;
+      font-size: 1rem;
+    }
+
+    .search-bar .search-btn {
+      background-color: #36f1cd;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .search-bar .search-btn:hover {
+      background-color: #2ed1b0;
+      box-shadow: 0 0 12px #36f1cd;
+    }
+
+    /*Dropdown*/
+    .dropdown {
+      position: absolute;
+      top: 45px;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      border-radius: 8px;
+      max-height: 200px;
+      overflow-y: auto;
+      display: none;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      z-index: 10;
+    }
+
+    .dropdown-item {
+      color: #000;
+      padding: 10px 12px;
+      border-bottom: 1px solid #ddd;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .dropdown-item:hover {
+      background-color: #e8f8f5;
+    }
+
+    /*Category Section*/
+    .categories {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .category-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .category-button {
+      background-color: #1a1a1a;
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .category-button:hover {
+      background-color: #00c4a3;
+      color: #000;
+      box-shadow: 0 0 15px #36f1cd;
+    }
+
+    /*Products*/
+    .product-section {
+      padding: 40px 100px;
+      text-align: center;
+    }
+
+    .product-section h2 {
+      color: #36f1cd;
+      margin-bottom: 25px;
+      font-size: 1.8rem;
+      text-shadow: 0 0 10px #36f1cd;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 255, 200, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 255, 200, 0.3);
+    }
+
+    .product-card img {
+      width: 100%;
+      border-radius: 10px;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .product-card h3 {
+      color: #36f1cd;
+      margin-top: 10px;
+    }
+
+    .subcateg {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: #36f1cd;
+      color: #000;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .subcateg:hover {
+      background-color: #2ed1b0;
+      box-shadow: 0 0 15px #36f1cd;
+    }
+
+    /*Footer*/
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      color: #999;
+      font-size: 0.9rem;
+      margin-top: 60px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!--HEADER-->
+  <header class="navbar">
+    <div class="left-section">
+      <img src="technolodia logo.png" alt="Technolodia Logo" class="logo">
+      <h1 class="site-title">Technolodia</h1>
+    </div>
+
+    <div class="auth-buttons">
+      <button class="login-btn" onclick="window.location.href='login.html'">Login</button>
+      <button class="signup-btn" onclick="window.location.href='signup.html'">Sign Up</button>
+    </div>
+  </header>
+
+  <!--SEARCH BAR-->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search for accessories...">
+    <button class="search-btn" onclick="searchItem()">Search</button>
+    <div id="dropdown" class="dropdown"></div>
+  </div>
+
+  <!--CATEGORY NAV-->
+  <nav class="categories">
+    <div class="category-buttons">
+      <a href="#keyboards" class="category-button">Keyboards</a>
+      <a href="#mouse" class="category-button">Mouse</a>
+      <a href="#monitors" class="category-button">Monitors</a>
+    </div>
+  </nav>
+
+  <!--MAIN CONTENT-->
+  <main>
+    <section id="keyboards" class="product-section">
+      <h2>Keyboards</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="mechanic.jpg" alt="Mechanical Keyboard">
+          <h3>Mechanical Keyboard</h3>
+          <p>Durable switches for gamers and professionals.</p>
+          <a href="mechkeyboard.html" class="subcateg">Shop Now</a>
+        </div>
+        <div class="product-card">
+          <img src="illuminated-gaming-keyboard-stockcake.jpg" alt="Membrane Keyboard">
+          <h3>Membrane Keyboard</h3>
+          <p>Quiet and affordable option for everyday use.</p>
+          <a href="membrane.html" class="subcateg">Shop Now</a>
+        </div>
+        <div class="product-card">
+          <img src="mechkeyboard.jpg" alt="Wireless Keyboard">
+          <h3>Wireless Keyboard</h3>
+          <p>Work and play without wires holding you back.</p>
+          <a href="wirelesskeyboard.html" class="subcateg">Shop Now</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="mouse" class="product-section">
+      <h2>Mouse</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="gamingg.jpg" alt="Gaming Mouse">
+          <h3>Gaming Mouse</h3>
+          <p>High DPI precision with RGB lighting.</p>
+          <a href="gamingmouse.html" class="subcateg">Shop Now</a>
+        </div>
+        <div class="product-card">
+          <img src="gg.jpg" alt="Wireless Mouse">
+          <h3>Wireless Mouse</h3>
+          <p>Seamless control without messy cables.</p>
+          <a href="wirelessmouse.html" class="subcateg">Shop Now</a>
+        </div>
+        <div class="product-card">
+          <img src="gaming.jpg" alt="Optical Mouse">
+          <h3>Optical Mouse</h3>
+          <p>Comfort designed for long working hours.</p>
+          <a href="opticalmouse.html" class="subcateg">Shop Now</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="monitors" class="product-section">
+      <h2>Monitors</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="gamingmonitor.jpg" alt="Gaming Monitor">
+          <h3>Gaming Monitor</h3>
+          <p>144Hz refresh rate for smooth gameplay.</p>
+          <a href="gamingmonitor.html" class="subcateg">Shop Now</a>
+        </div>
+        <div class="product-card">
+          <img src="curvedmonitor.jpg" alt="Curved Monitor">
+          <h3>Curved Monitor</h3>
+          <p>Immersive experience with a curved screen.</p>
+          <a href="curvedmonitor.html" class="subcateg">Shop Now</a>
+        </div>
+        <div class="product-card">
+          <img src="ultrawide.jpg" alt="Ultrawide Monitor">
+          <h3>Ultrawide Monitor</h3>
+          <p>Boost productivity with a wider workspace.</p>
+          <a href="ultrawide.html" class="subcateg">Shop Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Technolodia | Contact: support@technolodia.com</p>
+  </footer>
+
+  <script>
+    //Glow animation trigger
+    window.addEventListener("DOMContentLoaded", () => {
+      document.querySelector(".logo").classList.add("animate-glow");
+    });
+
+    //Search data
+    const searchData = [
+      { name: "Keyboard", link: "#keyboards" },
+      { name: "Mechanical Keyboard", link: "mechkeyboard.html" },
+      { name: "Membrane Keyboard", link: "membrane.html" },
+      { name: "Wireless Keyboard", link: "wirelesskeyboard.html" },
+      { name: "Mouse", link: "#mouse" },
+      { name: "Gaming Mouse", link: "gamingmouse.html" },
+      { name: "Wireless Mouse", link: "wirelessmouse.html" },
+      { name: "Optical Mouse", link: "opticalmouse.html" },
+      { name: "Monitor", link: "#monitors" },
+      { name: "Gaming Monitor", link: "gamingmonitor.html" },
+      { name: "Curved Monitor", link: "curvedmonitor.html" },
+      { name: "Ultrawide Monitor", link: "ultrawide.html" }
+    ];
+
+    const searchInput = document.getElementById("searchInput");
+    const dropdown = document.getElementById("dropdown");
+
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.toLowerCase();
+      dropdown.innerHTML = "";
+
+      if (query === "") {
+        dropdown.style.display = "none";
+        return;
+      }
+
+      const filtered = searchData.filter(item => item.name.toLowerCase().includes(query));
+
+      if (filtered.length > 0) {
+        dropdown.style.display = "block";
+        filtered.forEach(item => {
+          const div = document.createElement("div");
+          div.classList.add("dropdown-item");
+          div.textContent = item.name;
+          div.onclick = () => window.location.href = item.link;
+          dropdown.appendChild(div);
+        });
+      } else {
+        dropdown.style.display = "none";
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".search-bar")) dropdown.style.display = "none";
+    });
+
+    function searchItem() {
+      const query = searchInput.value.toLowerCase();
+      const match = searchData.find(item => item.name.toLowerCase().includes(query));
+      if (match) window.location.href = match.link;
+    }
+  </script>
+
+</body>
+</html>

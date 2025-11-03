@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+  <h1>Your Cart</h1>
+  <div class="cart-container" id="cartItems"></div>
+
+  <div class="cart-total" id="cartTotal"></div>
+
+  <!--Buttons Section (added Back to Home)-->
+  <div class="cart-buttons">
+    <button class="back-btn" onclick="goHome()">Back to Home</button>
+    <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+  </div>
+
+  <script>
+  function loadCart() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const container = document.getElementById("cartItems");
+    const totalEl = document.getElementById("cartTotal");
+
+    container.innerHTML = "";
+    let total = 0;
+
+    cart.forEach((item, index) => {
+      total += item.price;
+      container.innerHTML += `
+        <div class="cart-item">
+          <img src="${item.image}" alt="${item.name}">
+          <div class="cart-details">
+            <h3>${item.name}</h3>
+          </div>
+          <div class="price">₱${item.price.toLocaleString()}</div>
+          <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+        </div>
+      `;
+    });
+
+    totalEl.textContent = cart.length > 0 ? `Total: ₱${total.toLocaleString()}` : "Your cart is empty!";
+  }
+
+  function removeItem(index) {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    loadCart();
+  }
+
+  //clears cart after storing receipt
+  function checkout() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (cart.length === 0) {
+      alert("Your cart is empty!");
+      return;
+    }
+
+    //Save receipt data first
+    localStorage.setItem("receipt", JSON.stringify(cart));
+
+    //Then clear the cart
+    localStorage.removeItem("cart");
+
+    //Go to receipt page
+    window.location.href = "receipt.html";
+  }
+
+  //Going home resets both cart and receipt just to be safe
+  function goHome() {
+    localStorage.removeItem("cart");
+    localStorage.removeItem("receipt");
+    window.location.href = "index.html"; //change to your homepage
+  }
+
+  loadCart();
+</script>
+
+
+  
+</body>
+</html>

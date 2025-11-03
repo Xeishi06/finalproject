@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technolodia Receipt</title>
+  <link rel="stylesheet" href="receipt.css">
+</head>
+<body>
+  <h1>Technolodia Receipt</h1>
+
+  <div class="receipt-container">
+    <table class="receipt-table" id="receiptTable">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div class="total" id="receiptTotal"></div>
+
+    <div class="buttons">
+      <button class="back-btn" onclick="goHome()">Back to Home</button>
+      <button class="print-btn" onclick="window.print()">Print Receipt</button>
+    </div>
+  </div>
+
+  <script>
+    function loadReceipt() {
+      const receipt = JSON.parse(localStorage.getItem("receipt")) || [];
+      const tableBody = document.querySelector("#receiptTable tbody");
+      const totalEl = document.getElementById("receiptTotal");
+
+      tableBody.innerHTML = "";
+      let total = 0;
+
+      receipt.forEach(item => {
+        total += item.price;
+        const row = `
+          <tr>
+            <td>${item.name}</td>
+            <td>₱${item.price.toLocaleString()}</td>
+          </tr>
+        `;
+        tableBody.innerHTML += row;
+      });
+
+      totalEl.textContent = `Total: ₱${total.toLocaleString()}`;
+    }
+
+    function goHome() {
+      window.location.href = "index.html";
+    }
+
+    loadReceipt();
+  </script>
+</body>
+</html>

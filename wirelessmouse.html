@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wireless Mouse</title>
+  <link rel="stylesheet" href="wirelessmouse.css">
+</head>
+<body>
+
+  <!-- HEADER SECTION -->
+  <header class="header">
+    <h1 class = "companyname">Technolodia</h1>
+    <div class="cart-button">
+      <a href="cart.html">Cart</a>
+    </div>
+
+    <!-- NAVIGATION MENU -->
+    <nav class="nav-menu">
+      <a href="index.html" class="nav-item">Home</a>
+
+      <div class="nav-item dropdown">
+        Keyboard
+        <div class="dropdown-content">
+          <a href="mechkeyboard.html">Mechanical Keyboard</a>
+          <a href="membrane.html">Membrane Keyboard</a>
+          <a href="wirelesskeyboard.html">Wireless Keyboard</a>
+        </div>
+      </div>
+
+      <div class="nav-item dropdown active">
+        Mouse
+        <div class="dropdown-content">
+          <a href="gamingmouse.html">Gaming Mouse</a>
+          <a href="wirelessmouse.html">Wireless Mouse</a>
+          <a href="opticalmouse.html">Optical Mouse</a>
+        </div>
+      </div>
+
+      <div class="nav-item dropdown">
+        Monitor
+        <div class="dropdown-content">
+          <a href="gamingmonitor.html">Gaming Monitor</a>
+          <a href="curvedmonitor.html">Curved Monitor</a>
+          <a href="ultrawide.html">Ultra Wide Monitor</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- PRODUCT SECTION -->
+  <div class="product-container">
+
+    <div class="product-box" id = "c68">
+      <div class="product-image">
+        <img src="apple magic.png" alt="Wireless Mouse">
+      </div>
+      <div class="product-details">
+        <h1>Apple Magic Mouse</h1>
+        <ul class="description">
+        <li><strong>Type:</strong> Wireless Mouse</li>
+        <li><strong>Connectivity:</strong> USB Type-C / Bluetooth</li>
+        <li><strong>Battery Life:</strong> Up to 1 month</li>
+        <li><strong>Compatibility:</strong> PC, Mac, Mobile</li>
+        </ul>
+        <p class="price">₱4,490</p>
+        <div class="buttons">
+          <button class="buy">Buy Now</button>
+          <button class="cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-container">
+
+    <div class="product-box" id = "c98">
+      <div class="product-image">
+        <img src="Logitech MX master.png" alt="Wireless Mouse">
+      </div>
+      <div class="product-details">
+        <h1>Logitech MX Master 3S</h1>
+        <ul class="description">
+          <li><strong>Type:</strong> Wireless Mouse</li>
+        <li><strong>Connectivity:</strong> Bluetooth / USB Type-C / Wireless Receiver</li>
+        <li><strong>Battery Life:</strong> Up to 70 days</li>
+        <li><strong>Compatibility:</strong> Windows, Mac, iPad</li>
+        </ul>
+        <p class="price">₱6,116</p>
+        <div class="buttons">
+          <button class="buy">Buy Now</button>
+          <button class="cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-container">
+
+    <div class="product-box" id = "s98">
+      <div class="product-image">
+        <img src="Logitech Signature.png" alt="Wireless Mouse">
+      </div>
+      <div class="product-details">
+        <h1>Logitech Signature Ai M750</h1>
+        <ul class="description">
+         <li><strong>Type:</strong> Wireless Mouse</li>
+        <li><strong>Connectivity:</strong> Bluetooth / USB Type-C / Wireless Receiver</li>
+        <li><strong>Battery Life:</strong> Up to 2 years</li>
+        <li><strong>Compatibility:</strong> Windows, Mac, iPad</li>
+        </ul>
+        <p class="price">₱2,900</p>
+        <div class="buttons">
+          <button class="buy">Buy Now</button>
+          <button class="cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-container">
+
+    <div class="product-box" id = "g515">
+      <div class="product-image">
+        <img src="Logitech Anywhere 3S.png" alt="Wireless Mouse">
+      </div>
+      <div class="product-details">
+        <h1>Logitech MX Anywhere 3S</h1>
+        <ul class="description">
+          <li><strong>Type:</strong> Wireless Mouse</li>
+        <li><strong>Connectivity:</strong> Bluetooth / USB Type-C / Wireless Receiver</li>
+        <li><strong>Battery Life:</strong> Up to 70 days</li>
+        <li><strong>Compatibility:</strong> Windows, Mac, iPad</li>
+        </ul>
+        <p class="price">₱4,640.89</p>
+        <div class="buttons">
+          <button class="buy">Buy Now</button>
+          <button class="cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-container">
+
+    <div class="product-box" id = "rakk">
+      <div class="product-image">
+        <img src="Logitech m575.png" alt="Wireless Mouse">
+      </div>
+      <div class="product-details">
+        <h1>Logitech M575 Wireless</h1>
+        <ul class="description">
+          <li><strong>Type:</strong> Wireless Mouse</li>
+        <li><strong>Connectivity:</strong> Bluetooth / USB Type-C / Wireless Receiver</li>
+        <li><strong>Battery Life:</strong> Up to 20 months</li>
+        <li><strong>Compatibility:</strong> Windows, Mac, iPad</li>
+        </ul>
+        <p class="price">₱2,488.99</p>
+        <div class="buttons">
+          <button class="buy">Buy Now</button>
+          <button class="cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-container">
+  </div>
+
+  <script>
+  //Function to add a product to the cart
+  function addToCart(name, price, image) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const item = { name, price, image };
+
+    cart.push(item);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(`${name} has been added to your cart!`);
+  }
+
+  //Function to buy now (go straight to receipt)
+  function buyNow(name, price, image) {
+    const purchase = [{ name, price, image }];
+    localStorage.setItem("receipt", JSON.stringify(purchase));
+    window.location.href = "receipt.html";
+  }
+
+  //Attach event listeners to buttons
+  document.addEventListener("DOMContentLoaded", () => {
+    const productBoxes = document.querySelectorAll(".product-box");
+
+    productBoxes.forEach(box => {
+      const name = box.querySelector("h1").textContent;
+      const priceText = box.querySelector(".price").textContent.replace(/[₱,]/g, "").trim();
+      const price = parseFloat(priceText);
+      const image = box.querySelector("img").src;
+
+      //Add event listeners
+      box.querySelector(".cart").addEventListener("click", () => addToCart(name, price, image));
+      box.querySelector(".buy").addEventListener("click", () => buyNow(name, price, image));
+    });
+  });
+</script>
+</body>
+<footer>
+    <p>© 2025 Technolodia | Contact: support@technolodia.com</p>
+  </footer>
+</html>

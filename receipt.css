@@ -1,0 +1,123 @@
+/* General Layout */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to bottom, #0a2a43, #000); /* Futuristic gradient */
+  color: #e0f7fa; /* Light text for dark mode */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Title */
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #00e0c6; /* Technolodia teal */
+  text-shadow: 0 0 10px rgba(0, 224, 198, 0.6); /* Neon glow */
+}
+
+/* Receipt Container */
+.receipt-container {
+  background: rgba(10, 26, 36, 0.95); /* Slight transparency for dark mode */
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(0, 224, 198, 0.15);
+  padding: 30px 50px;
+  width: 80%;
+  max-width: 700px;
+  color: #cfd8dc; /* Softer light text */
+}
+
+/* Table Styling */
+.receipt-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.receipt-table th {
+  text-align: left;
+  border-bottom: 2px solid rgba(0, 224, 198, 0.3);
+  padding: 10px;
+  font-size: 1rem;
+  color: #00e0c6; /* Header highlight */
+}
+
+.receipt-table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  font-size: 0.95rem;
+  color: #e0f2f1;
+}
+
+.receipt-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Total Section */
+.total {
+  text-align: right;
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #00e0c6;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+button {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.back-btn {
+  background-color: #00e0c6;
+  color: #001b2e;
+  box-shadow: 0 0 10px rgba(0, 224, 198, 0.5);
+}
+
+.back-btn:hover {
+  background-color: #00bfa5;
+  box-shadow: 0 0 15px rgba(0, 224, 198, 0.8);
+}
+
+.print-btn {
+  background-color: transparent;
+  border: 2px solid #00e0c6;
+  color: #00e0c6;
+}
+
+.print-btn:hover {
+  background-color: #00e0c6;
+  color: #001b2e;
+  box-shadow: 0 0 15px rgba(0, 224, 198, 0.8);
+}
+
+/* Print Styles */
+@media print {
+  button, .buttons {
+    display: none;
+  }
+  body {
+    background: #fff;
+    color: #000;
+  }
+  .receipt-container {
+    box-shadow: none;
+    background: #fff;
+  }
+}

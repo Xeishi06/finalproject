@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curved Monitor</title>
+  <link rel="stylesheet" href="curvedmonitor.css">
+</head>
+<body>
+
+  <!-- HEADER SECTION -->
+  <header class="header">
+    <h1 class = "companyname">Technolodia</h1>
+    <div class="cart-button">
+      <a href="cart.html">Cart</a>
+    </div>
+
+    <!-- NAVIGATION MENU -->
+    <nav class="nav-menu">
+      <a href="index.html" class="nav-item">Home</a>
+
+      <div class="nav-item dropdown">
+        Keyboard
+        <div class="dropdown-content">
+          <a href="mechkeyboard.html">Mechanical Keyboard</a>
+          <a href="membrane.html">Membrane Keyboard</a>
+          <a href="wirelesskeyboard.html">Wireless Keyboard</a>
+        </div>
+      </div>
+
+      <div class="nav-item dropdown">
+        Mouse
+        <div class="dropdown-content">
+          <a href="gamingmouse.html">Gaming Mouse</a>
+          <a href="wirelessmouse.html">Wireless Mouse</a>
+          <a href="opticalmouse.html">Optical Mouse</a>
+        </div>
+      </div>
+
+      <div class="nav-item dropdown active">
+        Monitor
+        <div class="dropdown-content">
+          <a href="gamingmonitor.html">Gaming Monitor</a>
+          <a href="curvedmonitor.html">Curved Monitor</a>
+          <a href="ultrawide.html">Ultra Wide Monitor</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- PRODUCT SECTION -->
+  <div class="product-container">
+
+    <div class="product-box" id = "c68">
+      <div class="product-image">
+        <img src="Dell U4025QW.png" alt="Curved Monitor">
+      </div>
+      <div class="product-details">
+        <h1>Dell U4025 </h1>
+        <ul class="description">
+          <li><strong>Resolution:</strong>5120 × 2160</li>
+          <li><strong>Refresh Rate:</strong>120 HZ</li>
+          <li><strong>Screen Size:</strong>39.7"</li>
+          <li><strong>Response Time:</strong> 1ms</li>
+          <li><strong>Screen Ratio:</strong>21.9</li>
+        </ul>
+        <p class="price">₱97,258.00</p>
+        <div class="buttons">
+          <button class="buy">Buy Now</button>
+          <button class="cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-container">
+
+    <div class="product-box" id = "c98">
+      <div class="product-image">
+        <img src="Samsung LC27R500FHPXEN.png" alt="Curved Monitor">
+      </div>
+      <div class="product-details">
+        <h1> Samsung LC27R500FHPXEN </h1>
+        <ul class="description">
+          <li><strong>Resolution:</strong>1920 × 1080</li>
+          <li><strong>Refresh Rate:</strong>75 HZ</li>
+          <li><strong>Screen Size:</strong>27"</li>
+          <li><strong>Response Time:</strong> 4ms</li>
+          <li><strong>Screen Ratio:</strong>26.9</li>
+        </ul>
+        <p class="price">₱9,511.00</p>
+        <div class="buttons">
+          <button class="buy">Buy Now</button>
+          <button class="cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-container">
+
+    <div class="product-box" id = "s98">
+      <div class="product-image">
+        <img src="LG 32MR50C-B.png" alt="Curved Monitor">
+      </div>
+      <div class="product-details">
+        <h1> LG 32MR50C-B 32</h1>
+        <ul class="description">
+          <li><strong>Resolution:</strong>1920 × 1080.</li>
+          <li><strong>Refresh Rate:</strong>100 HZ</li>
+          <li><strong>Screen Size:</strong>31.5"</li>
+          <li><strong>Response Time:</strong> 1ms</li>
+          <li><strong>AMD FreeSync Support</strong></li>
+        </ul>
+        <p class="price">₱10,800.00</p>
+        <div class="buttons">
+          <button class="buy">Buy Now</button>
+          <button class="cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-container">
+
+    <div class="product-box" id = "g515">
+      <div class="product-image">
+        <img src="KOORUI 27E6CA.png" alt="Curved Monitor">
+      </div>
+      <div class="product-details">
+        <h1> KOORUI 27E6CA</h1>
+        <ul class="description">
+          <li><strong>Resolution:</strong>1920 × 1080</li>
+          <li><strong>Refresh Rate:</strong>180 HZ</li>
+          <li><strong>Screen Size:</strong>27"</li>
+          <li><strong>Response Time:</strong> 1ms</li>
+        </ul>
+        <p class="price">₱6,199.00</p>
+        <div class="buttons">
+          <button class="buy">Buy Now</button>
+          <button class="cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-container">
+
+    <div class="product-box" id = "rakk">
+      <div class="product-image">
+        <img src="Acer Predator X39 OLED.png" alt="Curved Monitor">
+      </div>
+      <div class="product-details">
+        <h1> Acer Predator X39 OLED</h1>
+        <ul class="description">
+          <li><strong>Resolution:</strong>OLED 3440 × 1440</li>
+          <li><strong>Refresh Rate:</strong>240 HZ</li>
+          <li><strong>Screen Size:</strong>34"</li>
+          <li><strong>Response Time:</strong> 0.1ms</li>
+        </ul>
+        <p class="price">₱54,999.00</p>
+        <div class="buttons">
+          <button class="buy">Buy Now</button>
+          <button class="cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-container">
+  </div>
+
+  <script>
+  //Function to add a product to the cart
+  function addToCart(name, price, image) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const item = { name, price, image };
+
+    cart.push(item);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(`${name} has been added to your cart!`);
+  }
+
+  //Function to buy now (go straight to receipt)
+  function buyNow(name, price, image) {
+    const purchase = [{ name, price, image }];
+    localStorage.setItem("receipt", JSON.stringify(purchase));
+    window.location.href = "receipt.html";
+  }
+
+  //Attach event listeners to buttons
+  document.addEventListener("DOMContentLoaded", () => {
+    const productBoxes = document.querySelectorAll(".product-box");
+
+    productBoxes.forEach(box => {
+      const name = box.querySelector("h1").textContent;
+      const priceText = box.querySelector(".price").textContent.replace(/[₱,]/g, "").trim();
+      const price = parseFloat(priceText);
+      const image = box.querySelector("img").src;
+
+      //Add event listeners
+      box.querySelector(".cart").addEventListener("click", () => addToCart(name, price, image));
+      box.querySelector(".buy").addEventListener("click", () => buyNow(name, price, image));
+    });
+  });
+</script>
+</body>
+<footer>
+    <p>© 2025 Technolodia | Contact: support@technolodia.com</p>
+  </footer>
+</html>
