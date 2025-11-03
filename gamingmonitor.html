@@ -169,7 +169,7 @@
   </div>
 
   <script>
-  // 🛒 Function to add a product to the cart
+  //Function to add a product to the cart
   function addToCart(name, price, image) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     const item = { name, price, image };
@@ -179,14 +179,14 @@
     alert(`${name} has been added to your cart!`);
   }
 
-  // 💳 Function to buy now (go straight to receipt)
+  //Function to buy now (go straight to receipt)
   function buyNow(name, price, image) {
     const purchase = [{ name, price, image }];
     localStorage.setItem("receipt", JSON.stringify(purchase));
     window.location.href = "receipt.html";
   }
 
-  // 🎯 Attach event listeners to buttons
+  //Attach event listeners to buttons
   document.addEventListener("DOMContentLoaded", () => {
     const productBoxes = document.querySelectorAll(".product-box");
 
